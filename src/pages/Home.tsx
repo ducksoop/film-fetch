@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { AiOutlineSearch } from 'react-icons/ai';
-import styles from '../styles/Home.module.scss';
 import Movie from '../types/Movie';
 import searchMovie from '../utils/api/searchMovie';
+
+import { AiOutlineSearch } from 'react-icons/ai';
+import { IoIosArrowForward } from 'react-icons/io';
+import { IoClose } from 'react-icons/io5';
+
+import styles from '../styles/Home.module.scss';
 
 interface Props {}
 
 const Home = ({}: Props) => {
+  const navigate = useNavigate();
+
   const [query, setQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<Movie[]>();
 
@@ -37,14 +44,43 @@ const Home = ({}: Props) => {
               onChange={(e) => setQuery(e.target.value)}
               value={query}
             />
-            <AiOutlineSearch size='26px' color='#ffffff' />
+            <div>
+              {query.length > 0 && (
+                <IoClose
+                  size='24px'
+                  color='white'
+                  onClick={() => setQuery('')}
+                />
+              )}
+              <AiOutlineSearch
+                size='26px'
+                color='#ffffff'
+                onClick={() => navigate(`/search/${query}`)}
+              />
+            </div>
           </div>
           {searchResults && (
             <div className={styles.searchResults}>
               {searchResults.map((movie: Movie) => (
-                <div className={styles.movie} key={movie.id}>
-                  {movie.title}
-                </div>
+                <Link
+                  to={`/movie/${movie.id}`}
+                  key={movie.id}
+                  className={styles.movie}
+                >
+                  <div>
+                    <div className={styles.imgWrapper}>
+                      <img
+                        src={
+                          movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w92/${movie.poster_path}`
+                            : 'https://via.placeholder.com/100x150'
+                        }
+                      />
+                    </div>
+                    <p>{movie.title}</p>
+                  </div>
+                  <IoIosArrowForward size='24px' color='white' />
+                </Link>
               ))}
             </div>
           )}
