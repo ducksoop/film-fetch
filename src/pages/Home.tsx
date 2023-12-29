@@ -65,6 +65,7 @@ const Home = ({}: Props) => {
             <div className={styles.searchResults}>
               {searchResults.map((movie: MovieType) => (
                 <Movie
+                  key={movie.id}
                   id={movie.id}
                   title={movie.title}
                   poster_path={movie.poster_path}
