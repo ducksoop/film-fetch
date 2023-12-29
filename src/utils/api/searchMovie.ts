@@ -11,7 +11,7 @@ const searchMovie = async (query: string): Promise<Movie[] | null> => {
   const response = await request.json();
 
   if (request.ok) {
-    return response.results.slice(0, 7);
+    return response.results.slice(0, 4);
   }
 
   return null;

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Movie from '../types/Movie';
+import Movie from '../components/Movie';
+
+import MovieType from '../types/Movie';
 import searchMovie from '../utils/api/searchMovie';
 
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -16,7 +18,7 @@ const Home = ({}: Props) => {
   const navigate = useNavigate();
 
   const [query, setQuery] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<Movie[]>();
+  const [searchResults, setSearchResults] = useState<MovieType[]>();
 
   useEffect(() => {
     (async () => {
@@ -61,26 +63,12 @@ const Home = ({}: Props) => {
           </div>
           {searchResults && (
             <div className={styles.searchResults}>
-              {searchResults.map((movie: Movie) => (
-                <Link
-                  to={`/movie/${movie.id}`}
-                  key={movie.id}
-                  className={styles.movie}
-                >
-                  <div>
-                    <div className={styles.imgWrapper}>
-                      <img
-                        src={
-                          movie.poster_path
-                            ? `https://image.tmdb.org/t/p/w92/${movie.poster_path}`
-                            : 'https://via.placeholder.com/100x150'
-                        }
-                      />
-                    </div>
-                    <p>{movie.title}</p>
-                  </div>
-                  <IoIosArrowForward size='24px' color='white' />
-                </Link>
+              {searchResults.map((movie: MovieType) => (
+                <Movie
+                  id={movie.id}
+                  title={movie.title}
+                  poster_path={movie.poster_path}
+                />
               ))}
             </div>
           )}
