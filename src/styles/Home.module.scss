@@ -3,13 +3,11 @@
   align-items: center;
   flex-direction: column;
   vertical-align: middle;
-  margin: 48px;
+  margin: 48px 48px 90px 48px;
+
   h1 {
     font-size: 48px;
   }
-}
-
-.formContainer {
 }
 
 .inputContainer {
@@ -24,7 +22,7 @@
     width: 100%;
     color: white;
     padding: 8px 72px 8px 16px;
-    font-family: "Fira mono", monospace;
+    font-family: 'Fira mono', monospace;
   }
 
   > div {
@@ -43,4 +41,8 @@
 
 .searchResults {
   margin-top: 24px;
+
+  .moreBtn {
+    color: white;
+  }
 }

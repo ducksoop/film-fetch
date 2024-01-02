@@ -78,6 +78,11 @@ const Home = ({}: Props) => {
                   poster_path={movie.poster_path}
                 />
               ))}
+              {searchResults.length > 0 && (
+                <Link to={`/search/${query}`} className={styles.moreBtn}>
+                  More Results
+                </Link>
+              )}
             </div>
           )}
         </div>

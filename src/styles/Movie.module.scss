@@ -12,6 +12,10 @@
     border-bottom: none;
   }
 
+  &:nth-last-of-type(2) {
+    margin-bottom: 8px;
+  }
+
   > div {
     display: flex;
     align-items: center;
@@ -30,8 +34,5 @@
 
   p {
     word-wrap: break-word;
-  }
-
-  svg {
   }
 }
