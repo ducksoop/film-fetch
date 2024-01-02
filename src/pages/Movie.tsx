@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import PlatformSelect from '../components/PlatformSelect';
 
@@ -20,6 +20,8 @@ import * as changeCase from 'change-case';
 import tmdbLogo from '../assets/tmdb_logo.svg';
 
 const Movie = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -48,9 +50,9 @@ const Movie = () => {
       </div>
       <div className={styles.main}>
         <div>
-          <Link to='/' className={styles.back}>
+          <p className={styles.back} onClick={() => navigate(-1)}>
             {'< Back'}
-          </Link>
+          </p>
           <h1>{movie.title}</h1>
           <div className={styles.movieMeta}>
             <p>{new Date(movie.release_date).getFullYear()}</p>
