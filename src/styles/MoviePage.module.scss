@@ -1,7 +1,7 @@
 .backdropContainer {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -10;
@@ -14,7 +14,6 @@
     object-position: center;
     display: block;
     width: 100%;
-    max-height: 100vh;
     height: 100%;
   }
 }
@@ -23,10 +22,81 @@
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0.6755077030812324) 0%,
-    rgba(0, 0, 0, 0.2329306722689075) 52%,
+    rgba(0, 0, 0, 0.7035189075630253) 52%,
+    rgba(0, 0, 0, 0.17130602240896353) 73%,
     rgba(0, 0, 0, 0) 100%
   );
-  height: 100vh;
-  .poster {
+
+  height: 100%;
+  min-height: 100vh;
+
+  > div {
+    width: 50%;
+    padding: 48px;
+  }
+
+  .back {
+    color: white;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .movieMeta {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    p {
+      display: inline-block;
+      font-size: 18px;
+    }
+
+    svg {
+      margin: 0 8px;
+    }
+  }
+
+  .description {
+    font-size: 21px;
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+
+  .moreInfo {
+    display: flex;
+    align-items: center;
+
+    p,
+    > div {
+      display: inline-block;
+    }
+
+    .rating {
+      display: inline-flex;
+      align-items: center;
+
+      svg {
+        margin-right: 8px;
+      }
+    }
+
+    .separator {
+      margin: 0 8px;
+    }
+
+    .links {
+      display: flex;
+      column-gap: 8px;
+
+      a {
+        display: flex;
+        color: white;
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
   }
 }
