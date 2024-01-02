@@ -3,6 +3,8 @@
     margin: 18px 0;
     display: inline-flex;
     flex-direction: column;
+    max-width: 100%;
+
     label {
       margin-bottom: 8px;
     }
@@ -30,8 +32,11 @@
       }
       .platformList {
         display: flex;
+        flex-wrap: wrap;
+        row-gap: 16px;
         column-gap: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 16px;        
+
         .provider {
           display: inline-block;
         }

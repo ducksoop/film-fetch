@@ -6,6 +6,10 @@
   left: 0;
   z-index: -10;
 
+  @media screen and (max-width: 1023px) {
+    position: unset;
+  }
+
   &.noBackdrop {
   }
 
@@ -33,6 +37,10 @@
   > div {
     width: 50%;
     padding: 48px 48px 90px 48px;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 
   .back {

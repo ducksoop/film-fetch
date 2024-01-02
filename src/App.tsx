@@ -4,7 +4,13 @@ import NotFound from './pages/NotFound';
 import Movie from './pages/Movie';
 import { Routes, Route } from 'react-router-dom';
 
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    document.title = 'Where to watch?';
+  }, []);
+  
   return (
     <Routes>
       <Route element={<Home />} path='/' />
