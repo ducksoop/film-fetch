@@ -65,7 +65,7 @@ const Movie = () => {
           <div className={styles.moreInfo}>
             <div className={styles.rating}>
               <IoMdStar />
-              <p>{movie.vote_average}</p>
+              <p>{movie.vote_average.toFixed(1)}</p>
             </div>
             <GoDotFill size='12px' className={styles.separator} />
             <div className={styles.links}>
