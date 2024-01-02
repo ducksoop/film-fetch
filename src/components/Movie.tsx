@@ -20,6 +20,7 @@ const Movie = ({ id, poster_path, title }: Props) => {
                 ? `https://image.tmdb.org/t/p/w92/${poster_path}`
                 : 'https://via.placeholder.com/100x150'
             }
+            alt={`Backdrop for ${title}`}
           />
         </div>
         <p>{title}</p>

@@ -1,15 +1,14 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import WatchProvider from '../types/WatchProvider';
 import WatchProviderObject from '../types/WatchProviderObject';
 
 import sortWatchProviders from '../utils/sortWatchProviders';
 import translateCountryCode from '../utils/translateCountryCode';
 import urlBuilder from '../utils/urlBuilder';
 
-import styles from '../styles/PlatformSelect.module.scss';
+import WatchProvider from './WatchProvider';
 
-import React from 'react';
+import styles from '../styles/PlatformSelect.module.scss';
 
 interface Props {
   movieId: number;
@@ -70,11 +69,11 @@ const PlatformSelect = ({ movieId }: Props) => {
               <p>Stream</p>
               <div className={styles.platformList}>
                 {watchProviders[choosenCountry].flatrate.map((provider) => (
-                  <div className={styles.provider} key={provider.provider_id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`}
-                    />
-                  </div>
+                  <WatchProvider
+                    key={provider.provider_id}
+                    name={provider.provider_name}
+                    logo={provider.logo_path}
+                  />
                 ))}
               </div>
             </div>
@@ -84,11 +83,11 @@ const PlatformSelect = ({ movieId }: Props) => {
               <p>Rent</p>
               <div className={styles.platformList}>
                 {watchProviders[choosenCountry].rent.map((provider) => (
-                  <div className={styles.provider} key={provider.provider_id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`}
-                    />
-                  </div>
+                  <WatchProvider
+                    key={provider.provider_id}
+                    name={provider.provider_name}
+                    logo={provider.logo_path}
+                  />
                 ))}
               </div>
             </div>
@@ -98,11 +97,11 @@ const PlatformSelect = ({ movieId }: Props) => {
               <p>Buy</p>
               <div className={styles.platformList}>
                 {watchProviders[choosenCountry].buy.map((provider) => (
-                  <div className={styles.provider} key={provider.provider_id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`}
-                    />
-                  </div>
+                  <WatchProvider
+                    key={provider.provider_id}
+                    name={provider.provider_name}
+                    logo={provider.logo_path}
+                  />
                 ))}
               </div>
             </div>

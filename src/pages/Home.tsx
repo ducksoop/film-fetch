@@ -7,7 +7,6 @@ import MovieType from '../types/Movie';
 import searchMovie from '../utils/api/searchMovie';
 
 import { AiOutlineSearch } from 'react-icons/ai';
-import { IoIosArrowForward } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
 
 import styles from '../styles/Home.module.scss';
