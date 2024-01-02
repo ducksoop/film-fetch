@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import WatchProvider from '../types/WatchProvider';
 import WatchProviderObject from '../types/WatchProviderObject';
 
+import sortWatchProviders from '../utils/sortWatchProviders';
 import translateCountryCode from '../utils/translateCountryCode';
 import urlBuilder from '../utils/urlBuilder';
 
@@ -32,7 +33,7 @@ const PlatformSelect = ({ movieId }: Props) => {
         await watchProvidersRequest.json();
 
       if (watchProvidersRequest.ok) {
-        setWatchProviders(watchProviders.results);
+        setWatchProviders(sortWatchProviders(watchProviders.results));
       }
     })();
   }, []);
@@ -59,7 +60,7 @@ const PlatformSelect = ({ movieId }: Props) => {
           ))}
         </select>
         <small>
-          Data provided by <a href="https://justwatch.com">JustWatch</a>
+          Data provided by <a href='https://justwatch.com'>JustWatch</a>
         </small>
       </div>
       {choosenCountry && (
